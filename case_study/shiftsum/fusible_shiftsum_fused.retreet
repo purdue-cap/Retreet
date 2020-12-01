@@ -1,0 +1,16 @@
+main(n)
+{
+  shiftsum(n);  // 0
+}
+
+shiftsum(n)
+{
+  if(n == nil){
+     return;  // 1
+  }
+  else {
+     n.v = n.next.v;    // 2
+     shiftsum(n.next);  // 3
+     n.v = n.next.v + n.v;    // 4
+  } 
+}

@@ -1,0 +1,26 @@
+main(n)
+{
+  shift(n);  // 0
+  sum(n);  // 1
+}
+
+shift(n)
+{
+  if(n==nil){
+     return;  // 2
+  }
+  else {
+  	 n.v = n.next.v;    // 3
+     shift(n.next);  // 4
+  } 
+}
+
+sum(m){
+ if (n==nil){
+   return;  // 5
+ }
+ else {
+   sum(n.next);  // 6
+   n.v = n.next.v + n.v;    // 7
+ }
+}

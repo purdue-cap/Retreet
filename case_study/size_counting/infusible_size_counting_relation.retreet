@@ -1,0 +1,11 @@
+unfused: 0 -> fused: 0
+unfused: 1 -> fused: 0
+unfused: 2 -> fused: 1
+unfused: 3 -> fused: 2
+unfused: 4 -> fused: 5
+unfused: 5 -> fused: 6
+unfused: 6 -> fused: 3
+unfused: 7 -> fused: 2
+unfused: 8 -> fused: 5
+unfused: 9 -> fused: 6
+unfused: 10 -> fused: 4

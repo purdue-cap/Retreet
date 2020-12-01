@@ -1,0 +1,30 @@
+main(n)
+{
+  odd(n);  // 0
+  even(n);  // 1
+  o = n.v;
+  e = n.s; // 2
+}
+
+odd(n)
+{
+  if(n==nil){
+     return;  // 3
+  }
+  else {
+     even(n.left);  // 4
+     even(n.right);  // 5
+     n.v = n.left.s + n.right.s + 1;    // 6
+  } 
+}
+
+even(m){
+ if (n==nil){
+   return;  // 7
+ }
+ else {
+   odd(n.left);  // 8
+   odd(n.right);  // 9
+   n.s = n.left.v + n.right.v;    // 10
+ }
+}

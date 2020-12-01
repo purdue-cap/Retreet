@@ -1,0 +1,61 @@
+main(n) {
+    RootModeFused(n, 0);                // 0
+}
+
+RootModeFused(n, number) {
+    if(n == nil) { 
+        return;                         // 1
+    }
+    else {
+        n.num = number;
+        number = number + 1;            // 2
+        PreModeFused(n.left, number);        // 3
+        PostModeFused(n.right, number);      // 4
+        n.max = n.left.max + n.right.max + n.num;
+        n.min = n.left.min - n.right.min - n.num; // 5
+    }
+}
+
+PreModeFused(n, number) {
+    if (n == nil) {
+        return;                         // 6
+    }
+    else {
+        n.num = number;
+        number = number + 1;            // 7
+        PreModeFused(n.left, number);        // 8
+        InModeFused(n.right, number);        // 9
+        n.max = n.left.max + n.right.max + n.num;
+        n.min = n.left.min - n.right.min - n.num; // 10
+    }
+}
+
+InModeFused(n, number) {
+    if (n == nil) {
+        return;                     // 11
+    }
+    else{
+        PostModeFused(n.left, number);   // 12
+        n.num = number;
+        number = number + 1;        // 13
+        PreModeFused(n.right, number);   // 14
+        n.max = n.left.max + n.right.max + n.num;
+        n.min = n.left.min - n.right.min - n.num; // 15
+    }
+}
+
+PostModeFused(n, number) {
+    if (n == nil) {
+        return;                         // 16
+    } 
+    else { 
+        InModeFused(n.left, number);         // 17
+        PostModeFused(n.right, number);      // 18
+        n.num = number;
+        number = number + 1;            // 19
+        n.max = n.left.max + n.right.max + n.num;
+        n.min = n.left.min - n.right.min - n.num; // 20
+    }
+}
+
+

@@ -1,0 +1,19 @@
+main(n)
+{
+  countingsize(n);  // 0
+  o = n.v;
+  e = n.s;  // 1
+}
+
+countingsize(n)
+{
+  if(n == nil){
+     return;  // 2
+  }
+  else {
+     countingsize(n.left);  // 3
+     countingsize(n.right);  // 4
+     n.v = n.left.s + n.right.s + 1;  // 5
+     n.s = n.left.v + n.right.v;    // 6
+  } 
+}

@@ -1,0 +1,44 @@
+main(n){
+    convertvalues(n);   // 0
+    minifyfont(n);      // 1
+    reduceinit(n);      // 2
+}
+
+convertvalues(n){
+    if(n == nil){
+        return;                     // 3
+    }
+    else{
+        convertvalues(n.left);      // 4
+        convertvalues(n.right);     // 5
+        if(n.type == 1 ){
+            n.value = n.value + 1;
+        }                           // 6
+    }
+}
+
+minifyfont(n){
+    if(n == nil){
+        return;                     // 7   
+    }
+    else{
+        minifyfont(n.left);         // 8
+        minifyfont(n.right);        // 9
+        if(n.prop == 1){
+            n.value = n.value + 2;
+        }                           // 10
+    }
+}
+
+reduceinit(n){
+    if(n == nil){
+        return;                     // 11
+    }
+    else{
+        reduceinit(n.left);         // 12
+        reduceinit(n.right);        // 13
+        if(n.value < 10){
+            n.value = n.value + 3;
+        }                           // 14
+    }
+}

@@ -1,0 +1,66 @@
+main(n) {
+    RootMode(n, 0);                     // 0
+    ComputeRouting(n);                  // 1
+}
+
+RootMode(n, number) {
+    if(n == nil) { 
+        return;                         // 2
+    }
+    else {
+        n.num = number;
+        number = number + 1;            // 3
+        PreMode(n.left, number);        // 4
+        PostMode(n.right, number);      // 5
+    }
+}
+
+PreMode(n, number) {
+    if (n == nil) {
+        return;                         // 6
+    }
+    else {
+        n.num = number;
+        number = number + 1;            // 7
+        PreMode(n.left, number);        // 8
+        InMode(n.right, number);        // 9
+    }
+}
+
+InMode(n, number) {
+    if (n == nil) {
+        return;                     // 10
+    }
+    else{
+        PostMode(n.left, number);   // 11
+        n.num = number;
+        number = number + 1;        // 12
+        PreMode(n.right, number);   // 13
+    }
+}
+
+PostMode(n, number) {
+    if (n == nil) {
+        return;                         // 14
+    }
+    else { 
+        InMode(n.left, number);         // 15
+        PostMode(n.right, number);      // 16
+        n.num = number;
+        number = number + 1;            // 17
+    }
+}
+
+ComputeRouting(n){
+    if (n == nil) {
+        return;                             // 18
+    }
+    else{
+        ComputeRouting(n.left);             // 19
+        ComputeRouting(n.right);            // 20
+        n.max = n.left.max + n.right.max + n.num;
+        n.min = n.left.min - n.right.min - n.num; // 21
+    }
+}
+
+

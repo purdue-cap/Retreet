@@ -1,0 +1,22 @@
+main(n){
+    fusedcss(n);   // 0
+}
+
+fusedcss(n){
+    if(n == nil){
+        return;                     // 1
+    }
+    else{
+        fusedcss(n.left);      // 2
+        fusedcss(n.right);     // 3
+        if(n.type == 1 ){
+            n.value = n.value + 1;
+        }                           // 4
+        if(n.prop == 1){
+            n.value = n.value + 2;
+        }                           // 5
+        if(n.value < 10){
+            n.value = n.value + 3;
+        }                           // 6
+    }
+}

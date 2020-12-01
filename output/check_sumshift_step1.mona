@@ -1,0 +1,13 @@
+ws1s;
+
+pred shift(var1 x, var1 y) = x + 1 = y;
+
+pred sum(var1 x, var1 y) = x <= y;
+
+pred shiftsum(var1 x, var1 y) = ex1 z: sum(x, z) & shift(z, y);
+
+pred sumshift(var1 x, var1 y) = ex1 z: shift(x, z) & sum(z, y);
+
+var1 x, y;
+
+shiftsum(x, y) <=> sumshift(x, y);
